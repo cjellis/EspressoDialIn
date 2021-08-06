@@ -4,13 +4,15 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 
-export const mainListItems = (
-    <div>
-        <ListItem button>
-            <ListItemIcon>
-                <DashboardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Track Shots" />
-        </ListItem>
-    </div>
+export const mainListItems = () => (
+  <div>
+    <ListItem button>
+      <ListItemIcon>
+        <DashboardIcon />
+      </ListItemIcon>
+      <ListItemText primary="Track Shots" />
+    </ListItem>
+  </div>
 );
+
+export default mainListItems;
