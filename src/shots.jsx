@@ -7,7 +7,8 @@ import TableBody from '@material-ui/core/TableBody';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
-import { Button } from '@material-ui/core';
+import List from '@material-ui/core/List';
+import { Button, ListItem } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 
 export default function Shots() {
@@ -27,8 +28,9 @@ export default function Shots() {
 
   let newShot = {
     date: '',
-    coffeeBrand: '',
+    coffeeName: '',
     gramsUsed: '',
+    grindSetting: '',
     preinfusionTime: '',
     shotTime: '',
     notes: '',
@@ -55,8 +57,9 @@ export default function Shots() {
         <TableHead>
           <TableRow>
             <TableCell>Date</TableCell>
-            <TableCell>Coffee Brand</TableCell>
+            <TableCell>Coffee Name</TableCell>
             <TableCell>Weight (g)</TableCell>
+            <TableCell>Grind Setting</TableCell>
             <TableCell>Preinfusion Time (s)</TableCell>
             <TableCell>Shot Time (s)</TableCell>
             <TableCell>Notes</TableCell>
@@ -66,8 +69,9 @@ export default function Shots() {
           {shots.map((row) => (
             <TableRow key={row.id}>
               <TableCell>{row.date}</TableCell>
-              <TableCell>{row.coffeeBrand}</TableCell>
+              <TableCell>{row.coffeeName}</TableCell>
               <TableCell>{row.gramsUsed}</TableCell>
+              <TableCell>{row.grindSetting}</TableCell>
               <TableCell>{row.preinfusionTime}</TableCell>
               <TableCell>{row.shotTime}</TableCell>
               <TableCell>{row.notes}</TableCell>
@@ -81,60 +85,63 @@ export default function Shots() {
         aria-labelledby="simple-dialog-title"
       >
         <DialogTitle id="simple-dialog-title">Add a Shot</DialogTitle>
-        <div>
-          Date:
-          <TextField
-            id="date"
-            label=""
-            type="date"
-            defaultValue=""
-            className={classes.textField}
-            InputLabelProps={{
-              shrink: true,
-            }}
-            onChange={(event) => { newShot.date = event.target.value; }}
-          />
-        </div>
-        <div>
-          Coffee Brand:
-          <TextField
-            id="filled-basic"
-            label=""
-            onChange={(event) => { newShot.coffeeBrand = event.target.value; }}
-          />
-        </div>
-        <div>
-          Grams Used:
-          <TextField
-            id="filled-basic"
-            label=""
-            onChange={(event) => { newShot.gramsUsed = event.target.value; }}
-          />
-        </div>
-        <div>
-          Pre-Infusion Time:
-          <TextField
-            id="filled-basic"
-            label=""
-            onChange={(event) => { newShot.preinfusionTime = event.target.value; }}
-          />
-        </div>
-        <div>
-          Shot Time:
-          <TextField
-            id="filled-basic"
-            label=""
-            onChange={(event) => { newShot.shotTime = event.target.value; }}
-          />
-        </div>
-        <div>
-          Notes:
-          <TextField
-            id="filled-basic"
-            label=""
-            onChange={(event) => { newShot.notes = event.target.value; }}
-          />
-        </div>
+        <List>
+          <ListItem>
+            <TextField
+              id="date"
+              label="Date"
+              type="date"
+              defaultValue=""
+              className={classes.textField}
+              InputLabelProps={{
+                shrink: true,
+              }}
+              onChange={(event) => { newShot.date = event.target.value; }}
+            />
+          </ListItem>
+          <ListItem>
+            <TextField
+              id="filled-basic"
+              label="Coffee Name"
+              onChange={(event) => { newShot.coffeeName = event.target.value; }}
+            />
+          </ListItem>
+          <ListItem>
+            <TextField
+              id="filled-basic"
+              label="Grams Used"
+              onChange={(event) => { newShot.gramsUsed = event.target.value; }}
+            />
+          </ListItem>
+          <ListItem>
+            <TextField
+              id="filled-basic"
+              label="Grind Setting"
+              onChange={(event) => { newShot.grindSetting = event.target.value; }}
+            />
+          </ListItem>
+          <ListItem>
+            <TextField
+              id="filled-basic"
+              label="Pre-Infusion Time (seconds)"
+              onChange={(event) => { newShot.preinfusionTime = event.target.value; }}
+            />
+          </ListItem>
+          <ListItem>
+            <TextField
+              id="filled-basic"
+              label="Shot Time (seconds)"
+              onChange={(event) => { newShot.shotTime = event.target.value; }}
+            />
+          </ListItem>
+          <ListItem>
+            <TextField
+              id="filled-basic"
+              label="Notes"
+              onChange={(event) => { newShot.notes = event.target.value; }}
+            />
+          </ListItem>
+        </List>
         <Button onClick={addShot}>Save</Button>
       </Dialog>
     </>
