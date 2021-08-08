@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import clsx from 'clsx';
 import {
   makeStyles,
@@ -108,7 +108,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function HomePage() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = useState(true);
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -116,15 +116,16 @@ export default function HomePage() {
     setOpen(false);
   };
   const [showShotForm, setShowShotForm] = useState(false);
-  const contentFactory = () => {
+  const setShowShotFormTrue = useCallback(() => setShowShotForm(true));
+  const content = useMemo(() => {
     if (showShotForm) return <ShotForm />;
     return (
       <>
-        <Button onClick={() => setShowShotForm(!showShotForm)} variant="contained" color="primary">Add Shot</Button>
+        <Button onClick={setShowShotFormTrue} variant="contained" color="primary">Add Shot</Button>
         <RecipeTable />
       </>
     );
-  };
+  });
 
   return (
     <div className={classes.root}>
@@ -172,7 +173,7 @@ export default function HomePage() {
           <Grid container spacing={3}>
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                {contentFactory()}
+                {content}
               </Paper>
             </Grid>
           </Grid>

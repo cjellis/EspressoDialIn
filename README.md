@@ -23,8 +23,6 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 ### `yarn lint`
 
 Runs eslint on the src directory.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 
 ### `yarn run build`
 

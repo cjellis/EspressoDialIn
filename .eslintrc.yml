@@ -11,5 +11,9 @@ parserOptions:
   sourceType: module
 plugins:
   - react
-rules: {"linebreak-style": 0}
+rules: {
+  "linebreak-style": 0,
+  "react/jsx-uses-react": "off",
+  "react/react-in-jsx-scope": "off"
+  }
 root: true
