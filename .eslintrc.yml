@@ -11,5 +11,5 @@ parserOptions:
   sourceType: module
 plugins:
   - react
-rules: {}
+rules: {"linebreak-style": 0}
 root: true

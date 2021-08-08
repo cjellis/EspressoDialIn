@@ -4,7 +4,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 
-export const mainListItems = () => (
+const mainListItems = () => (
   <div>
     <ListItem button>
       <ListItemIcon>
