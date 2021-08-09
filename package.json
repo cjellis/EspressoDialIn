@@ -13,6 +13,7 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.24.0",
     "formik": "^2.2.9",
+    "npx": "^10.2.2",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -26,7 +27,8 @@
     "lint": " ./node_modules/.bin/eslint src/ --fix",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "husky install"
   },
   "lint-staged": {
     "*.jsx": "./node_modules/.bin/eslint src/ --cache --fix"
@@ -59,7 +61,7 @@
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
-    "husky": "6.0.0",
+    "husky": "^7.0.1",
     "lint-staged": "^11.1.2",
     "prettier": "^2.3.2",
     "pretty-quick": "^3.1.1"
