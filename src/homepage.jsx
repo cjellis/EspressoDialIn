@@ -163,7 +163,7 @@ export default function HomePage() {
           </IconButton>
         </div>
         <Divider />
-        <List>{mainListItems}</List>
+        <List>{mainListItems()}</List>
         <Divider />
       </Drawer>
       <main className={classes.content}>
