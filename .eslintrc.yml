@@ -2,7 +2,7 @@ env:
   browser: true
   es2021: true
 extends:
-  - 'plugin:react/recommended'
+  - plugin:react/recommended
   - airbnb
 parserOptions:
   ecmaFeatures:
@@ -11,9 +11,9 @@ parserOptions:
   sourceType: module
 plugins:
   - react
-rules: {
-  "linebreak-style": 0,
-  "react/jsx-uses-react": "off",
-  "react/react-in-jsx-scope": "off"
-  }
+  - prettier
+rules:
+  linebreak-style: off
+  react/jsx-uses-react: off
+  react/react-in-jsx-scope: off
 root: true
