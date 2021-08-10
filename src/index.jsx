@@ -9,7 +9,7 @@ ReactDOM.render(
     {/* <head><script data-ad-client="ca-pub-4918387216265589" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" /></head> */}
     <App />
   </React.StrictMode>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

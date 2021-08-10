@@ -6,10 +6,8 @@ export default function Copyright() {
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
         EspressoDialIn.com
-      </Link>
-      {' '}
-      {new Date().getFullYear()}
-      .
+      </Link>{' '}
+      {new Date().getFullYear()}.
     </Typography>
   );
 }

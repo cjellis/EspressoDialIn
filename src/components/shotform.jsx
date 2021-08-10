@@ -3,12 +3,16 @@ import { Formik } from 'formik';
 export default function ShotForm() {
   return (
     <div>
-
       <h1>Espresso Recipe!</h1>
 
       <Formik
         initialValues={{
-          date: '', cofee: '', weight: '', preInfusionTime: '', shotTime: '', notes: '',
+          date: '',
+          cofee: '',
+          weight: '',
+          preInfusionTime: '',
+          shotTime: '',
+          notes: '',
         }}
         validate={(values) => {
           const errors = {};
@@ -16,9 +20,7 @@ export default function ShotForm() {
           if (!values.email) {
             errors.email = 'Required';
           } else if (
-
             !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-
           ) {
             errors.email = 'Invalid email address';
           }
@@ -33,9 +35,7 @@ export default function ShotForm() {
           }, 400);
         }}
       >
-
         {({
-
           values,
 
           errors,
@@ -51,11 +51,8 @@ export default function ShotForm() {
           isSubmitting,
 
           /* and other goodies */
-
         }) => (
-
           <form onSubmit={handleSubmit}>
-
             <input
               type="email"
               name="email"
@@ -77,17 +74,11 @@ export default function ShotForm() {
             {errors.password && touched.password && errors.password}
 
             <button type="submit" disabled={isSubmitting}>
-
               Submit
-
             </button>
-
           </form>
-
         )}
-
       </Formik>
-
     </div>
   );
 }

@@ -24,14 +24,13 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "lint": " ./node_modules/.bin/eslint src/ --fix",
+    "lint": "./node_modules/.bin/eslint \"src/\" --ext .jsx --fix",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare": "husky install"
-  },
-  "lint-staged": {
-    "*.jsx": "./node_modules/.bin/eslint src/ --cache --fix"
+    "prepare": "husky install",
+    "prettier-pre-commit": "pretty-quick --staged",
+    "run-prettier": "pretty-quick"
   },
   "husky": {
     "hooks": {

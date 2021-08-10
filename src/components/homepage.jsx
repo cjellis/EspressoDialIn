@@ -121,7 +121,13 @@ export default function HomePage() {
     if (showShotForm) return <ShotForm />;
     return (
       <>
-        <Button onClick={setShowShotFormTrue} variant="contained" color="primary">Add Shot</Button>
+        <Button
+          onClick={setShowShotFormTrue}
+          variant="contained"
+          color="primary"
+        >
+          Add Shot
+        </Button>
         <RecipeTable />
       </>
     );
@@ -130,18 +136,30 @@ export default function HomePage() {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
+      <AppBar
+        position="absolute"
+        className={clsx(classes.appBar, open && classes.appBarShift)}
+      >
         <Toolbar className={classes.toolbar}>
           <IconButton
             edge="start"
             color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
-            className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
+            className={clsx(
+              classes.menuButton,
+              open && classes.menuButtonHidden
+            )}
           >
             <MenuIcon />
           </IconButton>
-          <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
+          <Typography
+            component="h1"
+            variant="h6"
+            color="inherit"
+            noWrap
+            className={classes.title}
+          >
             Espresso Dial In
           </Typography>
           <IconButton color="inherit">
@@ -172,9 +190,7 @@ export default function HomePage() {
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                {content}
-              </Paper>
+              <Paper className={classes.paper}>{content}</Paper>
             </Grid>
           </Grid>
           <Box pt={4}>
