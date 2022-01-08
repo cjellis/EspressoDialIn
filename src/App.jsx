@@ -1,5 +1,4 @@
-import React from 'react';
-import HomePage from './homepage';
+import HomePage from './Homepage';
 
 export default function App() {
   return (

@@ -1,6 +1,7 @@
 env:
   browser: true
   es2021: true
+  "jest/globals": true
 extends:
   - 'plugin:react/recommended'
   - airbnb
@@ -10,8 +11,10 @@ parserOptions:
   ecmaVersion: 12
   sourceType: module
 plugins:
+  - jest
   - react
 rules: {
-  "linebreak-style": 0
+  "linebreak-style": 0,
+  "react/react-in-jsx-scope": 0
 }
 root: true
