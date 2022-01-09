@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -6,18 +7,67 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import TableCell from '@mui/material/TableCell';
 import TextField from '@mui/material/TextField';
+import { DataGrid } from '@mui/x-data-grid';
+
+const columns = [
+  {
+    field: 'date',
+    headerName: 'Date',
+    type: 'date',
+    width: 120,
+    editable: true,
+  },
+  {
+    field: 'coffeeName',
+    headerName: 'Coffee Name',
+    width: 200,
+    editable: true,
+  },
+  {
+    field: 'gramsUsed',
+    headerName: 'Weight (g)',
+    type: 'number',
+    editable: true,
+    valueFormatter: ({ value }) => `${value}g`,
+  },
+  {
+    field: 'grindSetting',
+    headerName: 'Grind Setting',
+    width: 150,
+    editable: true,
+  },
+  {
+    field: 'preinfusionTime',
+    headerName: 'Preinfusion Time (s)',
+    type: 'number',
+    width: 170,
+    editable: true,
+    valueFormatter: ({ value }) => `${value}s`,
+  },
+  {
+    field: 'shotTime',
+    headerName: 'Shot Time (s)',
+    type: 'number',
+    width: 130,
+    editable: true,
+    valueFormatter: ({ value }) => `${value}s`,
+  },
+  {
+    field: 'notes',
+    headerName: 'Notes',
+    flex: 1,
+    sortable: false,
+    editable: true,
+  },
+];
 
 export default function Shots() {
   const [showModal, setShowModal] = useState(false);
   const [shots, updateShots] = useState([]);
 
   let newShot = {
+    id: 1,
     date: '',
     coffeeName: '',
     gramsUsed: '',
@@ -37,39 +87,23 @@ export default function Shots() {
 
   const addShot = () => {
     updateShots([...shots, newShot]);
-    newShot = {};
+    newShot = { id: newShot.id + 1 };
     closeModal();
   };
 
   return (
     <>
       <Button onClick={openModal} variant="contained" color="primary">Add Shot</Button>
-      <Table size="small">
-        <TableHead>
-          <TableRow>
-            <TableCell>Date</TableCell>
-            <TableCell>Coffee Name</TableCell>
-            <TableCell>Weight (g)</TableCell>
-            <TableCell>Grind Setting</TableCell>
-            <TableCell>Preinfusion Time (s)</TableCell>
-            <TableCell>Shot Time (s)</TableCell>
-            <TableCell>Notes</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {shots.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell>{row.date}</TableCell>
-              <TableCell>{row.coffeeName}</TableCell>
-              <TableCell>{row.gramsUsed}</TableCell>
-              <TableCell>{row.grindSetting}</TableCell>
-              <TableCell>{row.preinfusionTime}</TableCell>
-              <TableCell>{row.shotTime}</TableCell>
-              <TableCell>{row.notes}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+      <Box sx={{ height: 400, width: '100%' }}>
+        <DataGrid
+          rows={shots}
+          columns={columns}
+          pageSize={5}
+          rowsPerPageOptions={[5]}
+          checkboxSelection
+          disableSelectionOnClick
+        />
+      </Box>
       <Dialog
         open={showModal}
         onClose={closeModal}

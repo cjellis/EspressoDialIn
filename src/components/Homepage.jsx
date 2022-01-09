@@ -7,7 +7,6 @@ import MuiContainer from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import MuiDrawer from '@mui/material/Drawer';
-import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import MuiPaper from '@mui/material/Paper';
@@ -163,14 +162,10 @@ export default function HomePage() {
           paddingTop: 7,
         }}
       >
-        <Container maxWidth="lg">
-          <Grid container spacing={3}>
-            <Grid item xs={12}>
-              <Paper>
-                <Shots />
-              </Paper>
-            </Grid>
-          </Grid>
+        <Container maxWidth="xl">
+          <Paper>
+            <Shots />
+          </Paper>
           <Box pt={4}>
             <Copyright />
           </Box>
