@@ -9,7 +9,6 @@ import Divider from '@mui/material/Divider';
 import MuiDrawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
-import MuiPaper from '@mui/material/Paper';
 import MuiToolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
@@ -91,13 +90,6 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-const Paper = styled(MuiPaper)(({ theme }) => ({
-  padding: theme.spacing(2),
-  display: 'flex',
-  overflow: 'auto',
-  flexDirection: 'column',
-}));
-
 const Toolbar = styled(MuiToolbar)(
   () => ({
     paddingRight: 24, // keep right padding when drawer closed
@@ -163,13 +155,9 @@ export default function HomePage() {
         }}
       >
         <Container maxWidth="xl">
-          <Paper>
-            <Shots />
-          </Paper>
-          <Box pt={4}>
-            <Copyright />
-          </Box>
+          <Shots />
         </Container>
+        <Copyright />
       </Box>
     </Box>
   );

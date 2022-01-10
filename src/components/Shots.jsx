@@ -93,8 +93,14 @@ export default function Shots() {
 
   return (
     <>
-      <Button onClick={openModal} variant="contained" color="primary">Add Shot</Button>
-      <Box sx={{ height: 400, width: '100%' }}>
+      <Button
+        onClick={openModal}
+        variant="contained"
+        color="primary"
+      >
+        Add Shot
+      </Button>
+      <Box sx={{ height: 400, width: '100%', paddingTop: 1 }}>
         <DataGrid
           rows={shots}
           columns={columns}
